@@ -4,3 +4,16 @@ html, body, p{
     color: $main-text-color;
 };
 
+//changing color according to category
+
+.apartment {
+    color: red;
+}
+
+.condo {
+    color: blue;
+}
+
+.house {
+    color : green;
+}

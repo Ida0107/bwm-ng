@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Rental = require('../models/rental')
 
+ //hitting dtabase to get data
 router.get('', function(req,res){
     Rental.find({}, function(err, foundRentals){
         res.json(foundRentals);
