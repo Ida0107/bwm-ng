@@ -1,4 +1,6 @@
-const Rental = require('./models/rental')
+const Rental = require('./models/rental');
+const User = require('./models/user');
+
 class FakeDb {
     constructor(){
         this.rentals = [{
@@ -34,22 +36,33 @@ class FakeDb {
             description: "Very nice apartment in center of the city.",
             dailyRate: 23
        }]
+       this.users = [{
+           username : "testuser",
+           email : "testuser@gmail.com",
+           password: "testuser"
+       }]
     }
     async cleanDb(){
+        await User.remove();
         await Rental.remove();
     }
 
-    pushRentalToDb(){
+    pushDataToDb(){
+        const user = new User(this.users[0]);
+
         this.rentals.forEach((rental) => {
             const newRental = new Rental(rental);
+            newRental.user = user;
 
+            user.rentals.push(newRental); //this relationship means that our rentals belong to th user. testuser is the owner
             newRental.save();
         })
+        user.save();
     }
 
-    seedDb(){
-        this.cleanDb();
-        this.pushRentalToDb();
+    async seedDb(){
+        await this.cleanDb();
+        this.pushDataToDb();
 
     }
 }
