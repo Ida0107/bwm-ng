@@ -10,13 +10,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgPipesModule} from 'ngx-pipes';
 import { UppercasePipe } from '../common/pipes/uppercase.pipe'
 import { MapModule } from '../common/map/map.module';
+import {AuthGuard} from '../auth/shared/auth.guard';
+import { Daterangepicker } from 'ng2-daterangepicker';
+import { RentalDetailBookingComponent } from './rental-detail/rental-detail-booking/rental-detail-booking.component';
 
 const routes : Routes = [
     {path: 'rentals', 
     component : RentalComponent,
     children :[
         {path: '', component: RentalListComponent},
-        {path: ':rentalId', component: RentalDetailComponent }
+        {path: ':rentalId', component: RentalDetailComponent, canActivate: [AuthGuard]}
    ]}
 ]
 
@@ -27,6 +30,7 @@ const routes : Routes = [
         RentalListItemComponent,
         RentalDetailComponent,
         UppercasePipe,
+        RentalDetailBookingComponent,
         
         
     ],
@@ -34,7 +38,8 @@ const routes : Routes = [
     RouterModule.forChild(routes),
     HttpClientModule,
     NgPipesModule,
-    MapModule
+    MapModule,
+    Daterangepicker
     ],
     providers :[RentalService]
 })
