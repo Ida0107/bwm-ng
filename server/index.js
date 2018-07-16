@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 
 mongoose.connect(config.DB_URI, {useNewUrlParser: true}).then(() =>{
     const fakeDb = new FakeDb();
-    fakeDb.seedDb();
+    //fakeDb.seedDb();
 });
 // connect method returns a promise
 
