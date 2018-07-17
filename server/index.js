@@ -5,6 +5,7 @@ const config = require('./config/dev');
 const FakeDb = require('./fake-db');
 const rentalRoutes = require('./routes/rentals');
 const userRoutes = require('./routes/users');
+const bookingRoutes = require('./routes/bookings');
 const bodyParser = require('body-parser');
 
 mongoose.connect(config.DB_URI, {useNewUrlParser: true}).then(() =>{
@@ -18,7 +19,8 @@ const PORT = process.env.PORT || 3001; //to check if PORT 3001 is available
 
 app.use(bodyParser.json()); //because we pant to parse json from bodyParser middleware
 app.use('/api/v1/rentals', rentalRoutes); 
-app.use('/api/v1/users', userRoutes);    //use is to make use of middlewares
+app.use('/api/v1/users', userRoutes); 
+app.use('/api/v1/bookings', bookingRoutes);    //use is to make use of middlewares
 
 // app.get('/rentals', function(req, res){
 //     res.json({'sucess': true});
