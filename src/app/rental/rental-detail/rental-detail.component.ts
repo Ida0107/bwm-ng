@@ -26,7 +26,7 @@ export class RentalDetailComponent implements OnInit {
     this.rentalService.getRentalByID(rentalId).subscribe(
       (rentalDetail : Rental) => {
         this.rental = rentalDetail;
-       console.log(this.rental);
+       //console.log(this.rental);
       })
 
     }
