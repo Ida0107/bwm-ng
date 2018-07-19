@@ -19,8 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "bwm",
       "styles": [
-        "styles.scss", "../node_modules/bootstrap/dist/css/bootstrap.min.css", 
-        "../node_modules/font-awesome/css/font-awesome.min.css"       ],
+        "styles.scss", 
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css", 
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css"      ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
