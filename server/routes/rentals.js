@@ -58,11 +58,11 @@ router.post('', UserCtrl.authMiddleware, function(req,res){
 });
 
 
-router.get('', function(req,res){
-    Rental.find({}).select('-bookings').exec (function(err, foundRentals){
-        res.json(foundRentals);
-    });
-});
+// router.get('', function(req,res){
+//     Rental.find({}).select('-bookings').exec (function(err, foundRentals){
+//         res.json(foundRentals);
+//     });
+// });
 
 
 
